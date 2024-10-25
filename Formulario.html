@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<script> src ="scripts.js"</script>
+<script>
+    function redireccionar() {
+        event.preventDefault()
+        window.location.href = "finalizado.html";
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Solicitud Adelanto SAC</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h1> Ingrese sus datos para solicitar un adelanto de SAC </h1>
+        <form id="presentacion" onsubmit="redireccionar(event)">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+            
+            
+            <div>
+                <label for="fechaIng">Fecha de Ingreso:</label>
+                <input type="date" id="fechaIng" name="fechaIng">
+            </div>
+            <div>
+                <label for="legajo">Legajo:</label>
+                <input type="number" id="legajo" name="legajo" pattern="{10,10}" required>
+            </div>
+            <div>
+                <label for="porcentaje">Porcentaje Solicitado:</label>
+                <input type="number" id="porcentaje" name="porcentaje" pattern="[15-60]" required>
+            </div>
+            <div>
+                <label for="motivo">Describa brevemente el motivo de su solicitud:</label>
+                <input type="text" id="motivo" name="motivo" pattern="{1-140}" required>
+            </div>
+            
+            <button> Enviar </button>
+
+        </form>
+    </div>
+    
+</body>
+</html>
