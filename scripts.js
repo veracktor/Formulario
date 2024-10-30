@@ -1,6 +1,6 @@
 function redireccionar() {
     event.preventDefault(); 
-    window.location.href = "bienvenido.html"; 
+    window.location.href = "finalizado.html"; 
 }
 
 
@@ -11,13 +11,21 @@ document.getElementById('registro').addEventListener('submit', function(event) {
 
 function enviarDatos() {
     // Obtener los valores del formulario
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const fechaIng = document.getElementById('fechaIng').value;
+    const legajo = document.getElementById('legajo').value;
+    const porcentaje = document.getElementById('porcentaje').value;
+    const motivo = document.getElementById('motivo').value;
 
     // Crear un objeto con los datos
     const data = {
-        email: email,
-        password: password
+        apellido: apellido,
+        nombre: nombre,
+        fechaIng: fechaIng,
+        legajo: legajo,
+        porcentaje: porcentaje,
+        motivo: motivo
     };
 
     // Enviar los datos al servidor
