@@ -4,7 +4,7 @@ function redireccionar() {
 }
 
 
-document.getElementById('registro').addEventListener('submit', function(event) {
+document.getElementById('solicitudSAC').addEventListener('submit', function(event) {
     event.preventDefault(); // Evitar que se recargue la página
     enviarDatos();
 });
