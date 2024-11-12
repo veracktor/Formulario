@@ -1,13 +1,9 @@
-function redireccionar(event) {
-    event.preventDefault(); 
-    window.location.href = "finalizado.html"; 
+
+function iniciarFormulario(event){
     const form = document.getElementById('solicitudSAC');
     if (form) {
         form.addEventListener('submit', enviarDatos);
     }
-
-
-
     document.getElementById('solicitudSAC').addEventListener('submit', (event) => {
         event.preventDefault(); // Evitar que se recargue la página
         enviarDatos();
@@ -33,10 +29,11 @@ function enviarDatos(event) {
         porcentaje: porcentaje,
         motivo: motivo
     };
+    console.log(data);
     console.log('Información exitosamente enviada')
 }
 
-function envioDatos(event) {
+function envioDatos() {
     // Enviar los datos al servidor
     fetch('/Formulario', {
         method: 'POST',

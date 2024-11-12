@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<script> src ="scripts.js"; defer></script>
 <script>
-    function redireccionar() {
-        event.preventDefault()
-        window.location.href = "finalizado.html";
-    }
+function redireccionar(event){
+    event.preventDefault()
+    window.location.href = "finalizado.html"; 
+}
 </script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
     <title>Solicitud Adelanto SAC</title>
 </head>
 <body>
     
     <div class="container">
         <h1> Ingrese sus datos para solicitar un adelanto de SAC </h1>
-        <form id="solicitudSAC" onsubmit="redireccionar()">
+        <form id="solicitudSAC" onsubmit="redireccionar(event)" onsubmit="iniciarFormulario(event)">
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
