@@ -1,15 +1,21 @@
-function redireccionar() {
+function redireccionar(event) {
     event.preventDefault(); 
     window.location.href = "finalizado.html"; 
+    const form = document.getElementById('solicitudSAC');
+    if (form) {
+        form.addEventListener('submit', enviarDatos);
+    }
+
+
+
+    document.getElementById('solicitudSAC').addEventListener('submit', (event) => {
+        event.preventDefault(); // Evitar que se recargue la página
+        enviarDatos();
+    });
 }
 
-
-document.getElementById('solicitudSAC').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar que se recargue la página
-    enviarDatos();
-});
-
-function enviarDatos() {
+function enviarDatos(event) {
+    event.preventDefault()
     // Obtener los valores del formulario
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;
@@ -27,9 +33,12 @@ function enviarDatos() {
         porcentaje: porcentaje,
         motivo: motivo
     };
+    console.log('Información exitosamente enviada')
+}
 
+function envioDatos(event) {
     // Enviar los datos al servidor
-    fetch('https://tu-api.com/login', {
+    fetch('/Formulario', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

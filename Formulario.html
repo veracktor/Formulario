@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<script> src ="scripts.js"</script>
+<script> src ="scripts.js"; defer></script>
 <script>
     function redireccionar() {
         event.preventDefault()
@@ -16,7 +16,7 @@
     
     <div class="container">
         <h1> Ingrese sus datos para solicitar un adelanto de SAC </h1>
-        <form id="presentacion" onsubmit="redireccionar(event)">
+        <form id="solicitudSAC" onsubmit="redireccionar()">
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -42,7 +42,7 @@
                 <input type="text" id="motivo" name="motivo" required>
             </div>
             
-            <button> Enviar </button>
+            <button type="submit" > Enviar </button>
 
         </form>
     </div>
