@@ -1,6 +1,7 @@
 
 function iniciarFormulario(event){
-    const form = document.getElementById('solicitudSAC');
+    event.preventDefault()
+      const form = document.getElementById('solicitudSAC');
     if (form) {
         form.addEventListener('submit', enviarDatos);
     }
@@ -8,6 +9,7 @@ function iniciarFormulario(event){
         event.preventDefault(); // Evitar que se recargue la página
         enviarDatos();
     });
+    window.location.href = "finalizado.html";
 }
 
 function enviarDatos(event) {
