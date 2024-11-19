@@ -57,3 +57,20 @@ function envioDatos() {
         console.error('Error:', error);
     });
 }
+
+function mostrarErrorModal(mensaje) {
+    const modal = document.getElementById('miModal');
+    const modalMessage = document.getElementById('modal-message');
+    modalMessage.textContent = mensaje;
+    modal.style.display = 'block';
+}
+
+function cerrarModal() {
+    const modal = document.getElementById('miModal');
+    modal.style.display = 'none';
+}
+
+
+function volver() {
+    window.history.back();
+}
