@@ -12,6 +12,14 @@ app.get('/', (req, res) => {
   app.get('/inicio', (req, res) => {
     res.sendFile(path.join(__dirname,'public/Formulario.html'));
   });
+
+  app.post('/formulario', (req) => {
+
+    const { data } = req.body;  
+  
+    res.status(401).json({ message: 'Ok' });
+  
+  });
   
 
 app.listen(port, () => {

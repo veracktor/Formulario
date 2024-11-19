@@ -33,10 +33,7 @@ function enviarDatos(event) {
     };
     console.log(data);
     console.log('Información exitosamente enviada')
-}
 
-function envioDatos() {
-    // Enviar los datos al servidor
     fetch('/Formulario', {
         method: 'POST',
         headers: {
