@@ -13,12 +13,21 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'public/Formulario.html'));
   });
 
-  app.post('/formulario', (req) => {
+  app.post('/Formulario', (req, res) => {
 
-    const { data } = req.body;  
+    const { fechaIng } = req.body;  
+    if (fechaIng != null){
+      res.json({ message: 'Ok'});
+      
+    } else{
+      res.status(401).json({ message: 'Nok' });
+
+    }
   
-    res.status(401).json({ message: 'Ok' });
-  
+      
+  });
+  app.get('/finalizado', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/finalizado.html'));
   });
   
 
