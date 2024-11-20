@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
   });
 
   app.get('/inicio', (req, res) => {
-    res.sendFile(path.join(__dirname,'public/Formulario.html'));
+    res.sendFile(path.join(__dirname, 'public','Formulario.html'));
   });
 
   app.post('/Formulario', (req, res) => {
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
       
   });
   app.get('/finalizado', (req, res) => {
-    res.sendFile(path.join(__dirname,'public/finalizado.html'));
+    res.sendFile(path.join(__dirname, 'public', 'finalizado.html'));
   });
   
 

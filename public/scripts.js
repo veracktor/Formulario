@@ -1,20 +1,16 @@
 
-function iniciarFormulario(event){
-    event.preventDefault()
-      const form = document.getElementById('solicitudSAC');
+function iniciarFormulario() {
+
+    const form = document.getElementById('solicitudSAC');
     if (form) {
         form.addEventListener('submit', enviarDatos);
     }
-    document.getElementById('solicitudSAC').addEventListener('submit', (event) => {
-        event.preventDefault(); // Evitar que se recargue la página
-        enviarDatos();
-    });
-    window.location.href = "finalizado.html";
+    
 }
 
 function enviarDatos(event) {
     event.preventDefault()
-    // Obtener los valores del formulario
+    
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;
     const fechaIng = document.getElementById('fechaIng').value;
@@ -22,7 +18,6 @@ function enviarDatos(event) {
     const porcentaje = document.getElementById('porcentaje').value;
     const motivo = document.getElementById('motivo').value;
 
-    // Crear un objeto con los datos
     const data = {
         apellido: apellido,
         nombre: nombre,
@@ -49,6 +44,7 @@ function enviarDatos(event) {
     })
     .then(data => {
         console.log('Éxito:', data);
+        window.location.href = '/finalizado'
     })
     .catch((error) => {
         console.error('Error:', error);
