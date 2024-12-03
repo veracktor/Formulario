@@ -13,7 +13,7 @@ function enviarDatos(event) {
     
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;
-    const fechaIng = document.getElementById('fechaIng').value;
+    const ingreso = document.getElementById('ingreso').value;
     const legajo = document.getElementById('legajo').value;
     const porcentaje = document.getElementById('porcentaje').value;
     const motivo = document.getElementById('motivo').value;
@@ -21,7 +21,7 @@ function enviarDatos(event) {
     const data = {
         apellido: apellido,
         nombre: nombre,
-        fechaIng: fechaIng,
+        ingreso: ingreso,
         legajo: legajo,
         porcentaje: porcentaje,
         motivo: motivo

@@ -11,7 +11,7 @@
     
     <div class="container">
         <h1> Ingrese sus datos para solicitar un adelanto de SAC </h1>
-        <form id="solicitudSAC" onsubmit="iniciarFormulario()" >
+        <form id="solicitudSAC" onclick="iniciarFormulario()" >
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -21,8 +21,8 @@
                 <input type="text" id="apellido" name="apellido" required>
             </div>                      
             <div>
-                <label for="fechaIng">Fecha de Ingreso:</label>
-                <input type="date" id="fechaIng" name="fechaIng">
+                <label for="ingreso">Fecha de Ingreso:</label>
+                <input type="date" id="ingreso" name="ingreso">
             </div>
             <div>
                 <label for="legajo">Legajo:</label>
@@ -41,6 +41,7 @@
 
         </form>
     </div>
+   
 
     
 </body>

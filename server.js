@@ -3,10 +3,12 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.send('¡Hola Mundo desde Express!');
+    res.send('Acordate de poner "/inicio"...');
   });
 
   app.get('/inicio', (req, res) => {
@@ -15,8 +17,9 @@ app.get('/', (req, res) => {
 
   app.post('/Formulario', (req, res) => {
 
-    const { fechaIng } = req.body;  
-    if (fechaIng != null){
+    const { nombre, apellido, ingreso, legajo, porcentaje, motivo } = req.body; 
+
+    if (nombre != null){
       res.json({ message: 'Ok'});
       
     } else{
@@ -26,6 +29,7 @@ app.get('/', (req, res) => {
   
       
   });
+  
   app.get('/finalizado', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'finalizado.html'));
   });
@@ -34,3 +38,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
