@@ -4,7 +4,7 @@ const path = require('path');
 
 const dbPath = 'C:\\Desarrollo\\Ejemplo\\BD\\datos_personales.db';
 
-function verificarCredenciales(apellido, nombre, ingreso, legajo, porcentaje, motivo) {
+function guardarSolicitud(apellido, nombre, ingreso, legajo, porcentaje, motivo) {
     return new Promise((resolve, reject) => {
         
         const db = new sqlite3.Database(dbPath, (err) => {
@@ -13,7 +13,7 @@ function verificarCredenciales(apellido, nombre, ingreso, legajo, porcentaje, mo
             }
         });
 
-        db.get('SELECT * FROM solicitudSAC WHERE apellido = ? AND nombre = ? AND ingreso = ? AND legajo = ? AND porcentaje = ? AND motivo = ?', [apellido, nombre, ingreso, legajo, porcentaje, motivo], (err, row) => {
+        db.get('INSERT INTO solicitudSAC (apellido, nombre, ingreso, legajo, porcentaje, motivo) values (?,?,?,?,?,?)', (err, row) => {
             if (err) {
                 db.close();
                 return reject('Error al consultar la base de datos: ' + err.message);
@@ -31,4 +31,4 @@ function verificarCredenciales(apellido, nombre, ingreso, legajo, porcentaje, mo
     });
 }
 
-module.exports = { verificarCredenciales };
+module.exports = { guardarSolicitud };

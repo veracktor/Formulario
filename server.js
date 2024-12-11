@@ -3,6 +3,8 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+const { guardarSolicitud } = require('./action');
+
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -18,18 +20,23 @@ app.get('/', (req, res) => {
   app.post('/Formulario', (req, res) => {
 
     const { nombre, apellido, ingreso, legajo, porcentaje, motivo } = req.body; 
+    try {
 
-    if (nombre != null){
+      if (guardarSolicitud){
       res.json({ message: 'Ok'});
       
-    } else{
+      } else{
       res.status(401).json({ message: 'Nok' });
 
-    }
+      }
+    } catch (error) {
+      // Si hubo algún error al leer la base de datos
+      console.error(error);
+      res.status(500).json({ message: 'Error en el servidor' });
   
       
-  });
-  
+  };
+  })
   app.get('/finalizado', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'finalizado.html'));
   });
