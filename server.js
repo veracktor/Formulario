@@ -17,12 +17,13 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public','Formulario.html'));
   });
 
-  app.post('/Formulario', (req, res) => {
+  app.post('/Formulario', async (req, res) => {
 
     const { nombre, apellido, ingreso, legajo, porcentaje, motivo } = req.body; 
     try {
+      const solicitudGuardada = await guardarSolicitud(nombre, apellido, ingreso, legajo, porcentaje, motivo);
 
-      if (guardarSolicitud){
+      if (solicitudGuardada){
       res.json({ message: 'Ok'});
       
       } else{

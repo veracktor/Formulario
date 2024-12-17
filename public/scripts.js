@@ -1,7 +1,7 @@
 
 function iniciarFormulario() {
 
-    const form = document.getElementById('solicitudSAC');
+    const form = document.getElementById('solicitud');
     if (form) {
         form.addEventListener('submit', enviarDatos);
     }
@@ -26,6 +26,7 @@ function enviarDatos(event) {
         porcentaje: porcentaje,
         motivo: motivo
     };
+
     console.log(data);
     console.log('Información exitosamente enviada')
 
@@ -44,17 +45,18 @@ function enviarDatos(event) {
     })
     .then(data => {
         console.log('Éxito:', data);
+        
         window.location.href = '/finalizado'
     })
-    .catch((error) => {
-        console.error('Error:', error);
+    .catch(error => {
+        mostrarErrorModal(error.message);
     });
 }
 
 function mostrarErrorModal(mensaje) {
     const modal = document.getElementById('miModal');
     const modalMessage = document.getElementById('modal-message');
-    modalMessage.textContent = mensaje;
+    modalMessage.textContent = message;
     modal.style.display = 'block';
 }
 
