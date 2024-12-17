@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 
-const dbPath = 'C:\\Desarrollo\\Ejemplo\\BD\\datos_personales.db';
+const dbPath = 'C:\\Desarrollo\\Formulario\\BD\\datos_personales.db';
 
 function guardarSolicitud(apellido, nombre, ingreso, legajo, porcentaje, motivo) {
     return new Promise((resolve, reject) => {
@@ -14,7 +14,7 @@ function guardarSolicitud(apellido, nombre, ingreso, legajo, porcentaje, motivo)
         });
         
 
-        db.get('INSERT INTO solicitudSAC (apellido, nombre, ingreso, legajo, porcentaje, motivo) values (?,?,?,?,?,?)',[apellido, nombre, ingreso, legajo, porcentaje, motivo], (err, row) => {
+        db.get('INSERT INTO solicitud (apellido, nombre, ingreso, legajo, porcentaje, motivo) values (?,?,?,?,?,?)',[apellido, nombre, ingreso, legajo, porcentaje, motivo], (err, row) => {
             if (err) {
                 db.close();
                 return reject('Error al consultar la base de datos: ' + err.message);
