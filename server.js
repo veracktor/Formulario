@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
       }
     } catch (error) {
-      // Si hubo algún error al leer la base de datos
+      
       console.error(error);
       res.status(500).json({ message: 'Error en el servidor' });
   

@@ -12,8 +12,9 @@ function guardarSolicitud(apellido, nombre, ingreso, legajo, porcentaje, motivo)
                 return reject('Error al conectar a la base de datos: ' + err.message);
             }
         });
+        
 
-        db.get('INSERT INTO solicitudSAC (apellido, nombre, ingreso, legajo, porcentaje, motivo) values (?,?,?,?,?,?)', (err, row) => {
+        db.get('INSERT INTO solicitudSAC (apellido, nombre, ingreso, legajo, porcentaje, motivo) values (?,?,?,?,?,?)',[apellido, nombre, ingreso, legajo, porcentaje, motivo], (err, row) => {
             if (err) {
                 db.close();
                 return reject('Error al consultar la base de datos: ' + err.message);
@@ -30,5 +31,6 @@ function guardarSolicitud(apellido, nombre, ingreso, legajo, porcentaje, motivo)
         });
     });
 }
+
 
 module.exports = { guardarSolicitud };
